@@ -6,9 +6,7 @@ const FaceBoxes = ({ regions }) => {
 		<div className="bounding-box-container">
 			{
 				regions.map((region, i) => {
-					console.log(region);
 					const boxie = region.region_info.bounding_box;
-					console.log(boxie);
 					return (typeof region !== undefined) ?
 					(
 						<div

@@ -57,8 +57,14 @@ class App extends Component {
     }});
   };
 
-  onInputChange = (event) => {
+  onImageURLInputChange = (event) => {
     this.setState({ input: event.target.value });
+  };
+
+  onImageURLKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      this.onPictureSubmit();
+    }
   };
 
   onPictureSubmit = () => {
@@ -110,7 +116,11 @@ class App extends Component {
           route === "home" ?
             <div>
               <Rank name={this.state.user.name} entries={this.state.user.entries} />
-              <ImageLinkForm onInputChange={this.onInputChange} onPictureSubmit={this.onPictureSubmit} />
+              <ImageLinkForm
+                onImageURLKeyDown={this.onImageURLKeyDown}
+                onImageURLInputChange={this.onImageURLInputChange} 
+                onPictureSubmit={this.onPictureSubmit}
+              />
               <FaceRecognition regions={regions} imgUrl={imgUrl} />
             </div> :
           (

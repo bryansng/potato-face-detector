@@ -1,5 +1,4 @@
 import React from 'react';
-import './FaceRecognition.css';
 import FaceBoxes from './FaceBoxes/FaceBoxes';
 
 const FaceRecognition = ({ regions, imgUrl }) => {

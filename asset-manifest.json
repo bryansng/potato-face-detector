@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/bryansng/potato-face-detector/static/css/main.6f839502.chunk.css",
-    "main.js": "/bryansng/potato-face-detector/static/js/main.c97d5865.chunk.js",
-    "main.js.map": "/bryansng/potato-face-detector/static/js/main.c97d5865.chunk.js.map",
-    "runtime~main.js": "/bryansng/potato-face-detector/static/js/runtime~main.665743ce.js",
-    "runtime~main.js.map": "/bryansng/potato-face-detector/static/js/runtime~main.665743ce.js.map",
-    "static/css/2.31dafeb2.chunk.css": "/bryansng/potato-face-detector/static/css/2.31dafeb2.chunk.css",
-    "static/js/2.7ca30bdf.chunk.js": "/bryansng/potato-face-detector/static/js/2.7ca30bdf.chunk.js",
-    "static/js/2.7ca30bdf.chunk.js.map": "/bryansng/potato-face-detector/static/js/2.7ca30bdf.chunk.js.map",
-    "index.html": "/bryansng/potato-face-detector/index.html",
-    "precache-manifest.36c5e8ca0b743c1d2da30d5cd2b18454.js": "/bryansng/potato-face-detector/precache-manifest.36c5e8ca0b743c1d2da30d5cd2b18454.js",
-    "service-worker.js": "/bryansng/potato-face-detector/service-worker.js",
-    "static/css/2.31dafeb2.chunk.css.map": "/bryansng/potato-face-detector/static/css/2.31dafeb2.chunk.css.map",
-    "static/css/main.6f839502.chunk.css.map": "/bryansng/potato-face-detector/static/css/main.6f839502.chunk.css.map",
-    "static/media/brain.png": "/bryansng/potato-face-detector/static/media/brain.95de09b9.png"
+    "main.css": "/potato-face-detector/static/css/main.6f839502.chunk.css",
+    "main.js": "/potato-face-detector/static/js/main.f4ad81be.chunk.js",
+    "main.js.map": "/potato-face-detector/static/js/main.f4ad81be.chunk.js.map",
+    "runtime~main.js": "/potato-face-detector/static/js/runtime~main.c222d62e.js",
+    "runtime~main.js.map": "/potato-face-detector/static/js/runtime~main.c222d62e.js.map",
+    "static/css/2.31dafeb2.chunk.css": "/potato-face-detector/static/css/2.31dafeb2.chunk.css",
+    "static/js/2.7ca30bdf.chunk.js": "/potato-face-detector/static/js/2.7ca30bdf.chunk.js",
+    "static/js/2.7ca30bdf.chunk.js.map": "/potato-face-detector/static/js/2.7ca30bdf.chunk.js.map",
+    "index.html": "/potato-face-detector/index.html",
+    "precache-manifest.889d06a298d653e7fbef351c27b727d5.js": "/potato-face-detector/precache-manifest.889d06a298d653e7fbef351c27b727d5.js",
+    "service-worker.js": "/potato-face-detector/service-worker.js",
+    "static/css/2.31dafeb2.chunk.css.map": "/potato-face-detector/static/css/2.31dafeb2.chunk.css.map",
+    "static/css/main.6f839502.chunk.css.map": "/potato-face-detector/static/css/main.6f839502.chunk.css.map",
+    "static/media/brain.png": "/potato-face-detector/static/media/brain.95de09b9.png"
   }
 }

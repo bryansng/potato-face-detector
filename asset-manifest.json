@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/potato-face-detector/static/css/main.6f839502.chunk.css",
-    "main.js": "/potato-face-detector/static/js/main.f4ad81be.chunk.js",
-    "main.js.map": "/potato-face-detector/static/js/main.f4ad81be.chunk.js.map",
+    "main.js": "/potato-face-detector/static/js/main.af1cd9e2.chunk.js",
+    "main.js.map": "/potato-face-detector/static/js/main.af1cd9e2.chunk.js.map",
     "runtime~main.js": "/potato-face-detector/static/js/runtime~main.c222d62e.js",
     "runtime~main.js.map": "/potato-face-detector/static/js/runtime~main.c222d62e.js.map",
     "static/css/2.31dafeb2.chunk.css": "/potato-face-detector/static/css/2.31dafeb2.chunk.css",
     "static/js/2.7ca30bdf.chunk.js": "/potato-face-detector/static/js/2.7ca30bdf.chunk.js",
     "static/js/2.7ca30bdf.chunk.js.map": "/potato-face-detector/static/js/2.7ca30bdf.chunk.js.map",
     "index.html": "/potato-face-detector/index.html",
-    "precache-manifest.889d06a298d653e7fbef351c27b727d5.js": "/potato-face-detector/precache-manifest.889d06a298d653e7fbef351c27b727d5.js",
+    "precache-manifest.f14149957ad652812081e0e75a900b50.js": "/potato-face-detector/precache-manifest.f14149957ad652812081e0e75a900b50.js",
     "service-worker.js": "/potato-face-detector/service-worker.js",
     "static/css/2.31dafeb2.chunk.css.map": "/potato-face-detector/static/css/2.31dafeb2.chunk.css.map",
     "static/css/main.6f839502.chunk.css.map": "/potato-face-detector/static/css/main.6f839502.chunk.css.map",

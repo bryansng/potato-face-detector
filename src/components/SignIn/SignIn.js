@@ -35,7 +35,15 @@ class SignIn extends Component {
 		})
 	}
 
+	causeHerokuToLoadFilesToRAM = () => {
+		fetch("https://face-detection-1.herokuapp.com/", {
+			method: 'get',
+			headers: {'Content-Type': 'application/json'}
+		})
+	}
+
 	render() {
+		this.causeHerokuToLoadFilesToRAM();
 		const { onRouteChange } = this.props;
 		return (
 			<article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">

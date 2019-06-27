@@ -2,8 +2,11 @@
   "name": "face_detection",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bryansng.github.io/potato-face-detector",
   "dependencies": {
     "clarifai": "^2.9.0",
+    "dotenv": "^8.0.0",
+    "gh-pages": "^2.0.1",
     "knex": "^0.17.3",
     "pg": "^7.11.0",
     "react": "^16.8.6",
@@ -14,6 +17,8 @@
     "tachyons": "^4.11.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

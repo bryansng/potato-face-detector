@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "248810bb77a6b0a4ac099cf376eee0e8",
+    "revision": "13807506f516486fee570721d040d425",
     "url": "/potato-face-detector/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/potato-face-detector/static/css/2.31dafeb2.chunk.css"
   },
   {
-    "revision": "61dac7ba3f9eb27371ee",
+    "revision": "f6be4d8d314b6c61ed3b",
     "url": "/potato-face-detector/static/css/main.6f839502.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/potato-face-detector/static/js/2.7ca30bdf.chunk.js"
   },
   {
-    "revision": "61dac7ba3f9eb27371ee",
-    "url": "/potato-face-detector/static/js/main.af1cd9e2.chunk.js"
+    "revision": "f6be4d8d314b6c61ed3b",
+    "url": "/potato-face-detector/static/js/main.91b53aec.chunk.js"
   },
   {
     "revision": "0162a20e4ab268d09bc2",

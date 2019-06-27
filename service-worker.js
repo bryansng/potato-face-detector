@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/potato-face-detector/precache-manifest.f14149957ad652812081e0e75a900b50.js"
+  "/potato-face-detector/precache-manifest.7c0d099c37b9818c1efe89a08622bbe3.js"
 );
 
 self.addEventListener('message', (event) => {

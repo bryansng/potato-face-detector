@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Particles from 'react-particles-js';
 import './App.css';
 import Logo from './components/Logo/Logo';
 import Navigation from './components/Navigation/Navigation';
@@ -7,8 +8,11 @@ import Register from './components/Register/Register';
 import Rank from './components/Rank/Rank';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
-import Particles from 'react-particles-js';
-import 'tachyons';
+import Modal from './components/Modal/Modal';
+import Profile from './components/Profile/Profile';
+
+const BACKEND_URL = 'http://localhost:3000/';
+// const BACKEND_URL = 'https://face-detection-1.herokuapp.com/';
 
 const particlesOptions = {
   "particles": {
@@ -31,12 +35,15 @@ const initialState = {
   regions: [],
   route: "signin",
   isSignedIn: false,
+  isProfileOpen: false,
   user: {
     id: 0,
     name: '',
     email: '',
     entries: 0,
-    joined: ''
+    joined: '',
+    pet: '',
+    age: ''
   }
 };
 
@@ -45,6 +52,44 @@ class App extends Component {
     super();
     this.state = initialState;
   };
+
+  // first cycle in React: we check if there is a token in session storage.
+  componentDidMount() {
+    const token = window.sessionStorage.getItem('token');
+    if (token) {
+      fetch(`${BACKEND_URL}signin`, {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': token
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.id) {
+          this.fetchUserData(data.id, token);
+        }
+      })
+      .catch(console.log)
+    }
+  }
+
+  fetchUserData = (userId, token) => {
+    fetch(`${BACKEND_URL}profile/${userId}`, {
+      method: 'get',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
+      }
+    })
+    .then(res => res.json())
+    .then(user => {
+      if (user && user.email) {
+        this.loadUser(user);
+        this.onRouteChange('home');
+      }
+    })
+  }
 
   loadUser = (data) => {
     this.setState({ user: {
@@ -68,50 +113,72 @@ class App extends Component {
   };
 
   onPictureSubmit = () => {
-    this.setState({ imgUrl: this.state.input });
-
-    fetch('https://face-detection-1.herokuapp.com/imageurl', {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        imgUrl: this.state.input
-      })
-    })
-    .then(response => response.json())
-    .then(response => {
-      fetch('https://face-detection-1.herokuapp.com/image', {
-        method: 'put',
-        headers: {'Content-Type': 'application/json'},
+    if (this.state.input) {
+      this.setState({ imgUrl: this.state.input });
+      fetch(`${BACKEND_URL}imageurl`, {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': window.sessionStorage.getItem('token')
+        },
         body: JSON.stringify({
-          id: this.state.user.id
+          imgUrl: this.state.input
         })
       })
-      .then(response => response.json())
-      .then(count => this.setState(Object.assign(this.state.user, { entries: count })))
-      
-      this.setState({ regions: response.outputs[0].data.regions });
-    })
-    .catch(console.log);
+      .then(resp => {
+        if (resp.status === 400)
+          throw new Error('Invalid image URL given');
+        return resp.json();
+      })
+      .then(resp => {
+        fetch(`${BACKEND_URL}image`, {
+          method: 'put',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': window.sessionStorage.getItem('token')
+          },
+          body: JSON.stringify({
+            id: this.state.user.id
+          })
+        })
+        .then(resp => resp.json())
+        .then(count => this.setState(Object.assign(this.state.user, { entries: count })))
+        
+        this.setState({ regions: resp.outputs[0].data.regions });
+      })
+      .catch(console.log);
+    }
   };
 
   onRouteChange = (route) => {
     if (route === 'signin') {
       this.setState(initialState);
+      window.sessionStorage.removeItem('token');
     } else if (route === 'home') {
       this.setState({ isSignedIn: true });
     }
     this.setState({ route: route });
   }
 
+  toggleModal = () => (
+    this.setState((prevState) => ({ isProfileOpen: !prevState.isProfileOpen }))
+  );
+
   render() {
-    const { imgUrl, regions, route, isSignedIn } = this.state;
+    const { user, imgUrl, regions, route, isSignedIn, isProfileOpen } = this.state;
     return (
       <div className="App">
         <Particles className="bgParticles" params={particlesOptions} />
         <div style={{display:"flex", justifyContent:"space-between"}} className="pa2">
           <Logo />
-          <Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn} />
+          <Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn} toggleModal={this.toggleModal} />
         </div>
+        {
+          isProfileOpen &&
+          <Modal>
+            <Profile BACKEND_URL={BACKEND_URL} user={user} loadUser={this.loadUser} toggleModal={this.toggleModal} />
+          </Modal>
+        }
         {
           route === "home" ?
             <div>
@@ -125,8 +192,8 @@ class App extends Component {
             </div> :
           (
             route === "signin" ?
-            <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser} /> :
-            <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
+            <SignIn BACKEND_URL={BACKEND_URL} onRouteChange={this.onRouteChange} fetchUserData={this.fetchUserData} loadUser={this.loadUser} /> :
+            <Register BACKEND_URL={BACKEND_URL} onRouteChange={this.onRouteChange} fetchUserData={this.fetchUserData} loadUser={this.loadUser} />
           )
         }
       </div>

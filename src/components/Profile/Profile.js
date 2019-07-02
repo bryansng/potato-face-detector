@@ -1,6 +1,12 @@
 import React from 'react';
 import './Profile.css'
 
+/* Extra:
+Ability for users to upload new pictures to their profile. 
+
+As an idea, you can use an upload profile button to trigger a lambda function that uploads the image to an S3 bucket where you store user profile pictures.
+*/
+
 class Profile extends React.Component {
 	constructor(props) {
 		super(props);

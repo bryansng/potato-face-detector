@@ -1,5 +1,5 @@
 # Potato Face Detector
-![Alt text](/readme-resources/overview.png "App Overview")
+![Alt text](/readme-resources/full_overview.png "App Overview")
 
 Front-end developed using React. Back-end via Node.js and Express. User info stored in PostgresSQL. Face Recognition using [Clarifai](https://www.clarifai.com/)'s Face Detect API. Deployed using Heroku.
 
